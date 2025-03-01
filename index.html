@@ -79,18 +79,14 @@
 
         function toggleDetails(id) {
             var details = document.getElementById(id);
-            if (details.dataset.open === "true") {
-                // Fermer avec un effet de slide up
-                gsap.to(details, {height: 0, opacity: 0, duration: 0.5, ease: "power2.in", onComplete: function() {
-                    details.dataset.open = "false";
-                }});
+            if (!details.classList.contains("open")) {
+                // Ouvre la section avec un slide
+                gsap.to(details, {height: "auto", opacity: 1, duration: 0.5, ease: "power2.out"});
+                details.classList.add("open");
             } else {
-                // Ouvrir avec un effet de slide down
-                gsap.set(details, {display: "block", height: "auto"});
-                var height = details.offsetHeight; // Récupérer la hauteur complète
-                gsap.set(details, {height: 0, opacity: 0});
-                gsap.to(details, {height: height, opacity: 1, duration: 0.5, ease: "power2.out"});
-                details.dataset.open = "true";
+                // Ferme la section avec un slide
+                gsap.to(details, {height: 0, opacity: 0, duration: 0.5, ease: "power2.in"});
+                details.classList.remove("open");
             }
         }
     </script>
