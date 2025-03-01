@@ -12,20 +12,14 @@
         section { padding: 40px; max-width: 800px; margin: auto; background: white; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); opacity: 0; transform: translateY(20px); }
         h2 { color: #2c3e50; opacity: 0; transform: translateX(-30px); cursor: pointer; }
         footer { background-color: #2c3e50; color: white; padding: 15px; position: relative; bottom: 0; width: 100%; font-size: 14px; }
-        .container { padding: 20px; }
-        .btn { background-color: #2980b9; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 10px; transition: background 0.3s ease-in-out, transform 0.2s; }
-        .btn:hover { background-color: #1a5276; transform: scale(1.1); }
-        .toggle-details { display: none; text-align: left; margin-top: 10px; }
+        .toggle-details { overflow: hidden; height: 0; opacity: 0; display: block; text-align: left; margin-top: 10px; }
     </style>
 </head>
 <body>
     <header>
         <h1>NASOLOJAONA Manovosoa</h1>
     </header>
-    <section>
-        <h2>À propos de moi</h2>
-        <p>Professionnel en gestion et assistance CRM, je possède une expertise en optimisation de processus et en relation client. Fort d’une expérience en support technique et en gestion de données, je suis à l’aise avec les outils CRM et la communication digitale. Mon approche proactive et mon esprit analytique me permettent d’apporter des solutions efficaces pour améliorer l’expérience utilisateur.</p>
-    </section>
+
     <section>
         <h2 onclick="toggleDetails('skills')">Compétences</h2>
         <div id="skills" class="toggle-details">
@@ -45,15 +39,17 @@
             </ul>
         </div>
     </section>
+
     <section>
         <h2 onclick="toggleDetails('projects')">Projets & Réalisations</h2>
         <div id="projects" class="toggle-details">
-            <h3>🚀 Optimisation de la gestion CRM chez ABL OUTSOURCING</h3>
-            <p>J’ai développé et optimisé des processus CRM permettant d’améliorer le suivi des interactions clients et d’automatiser certaines tâches administratives, réduisant ainsi le temps de traitement des demandes.</p>
-            <h3>🌐 Déploiement d’un outil de reporting automatisé</h3>
-            <p>Mise en place d’un tableau de bord interactif pour le suivi des performances clients, facilitant l’analyse des données et la prise de décisions stratégiques.</p>
+            <h3>🚀 Optimisation de la gestion CRM</h3>
+            <p>J’ai développé et optimisé des processus CRM permettant d’améliorer le suivi des interactions clients et d’automatiser certaines tâches administratives.</p>
+            <h3>🌐 Déploiement d’un outil de reporting</h3>
+            <p>Mise en place d’un tableau de bord interactif facilitant l’analyse des données et la prise de décisions stratégiques.</p>
         </div>
     </section>
+
     <section>
         <h2 onclick="toggleDetails('formation')">Formations</h2>
         <div id="formation" class="toggle-details">
@@ -63,6 +59,7 @@
             <p>DTS - MARKETING ET COMMERCE (2016-2018)</p>
         </div>
     </section>
+
     <section>
         <h2>Contact</h2>
         <p>Email : manovosoanasolojaona@gmail.com</p>
@@ -70,20 +67,30 @@
         <br>
         <a href="https://www.linkedin.com/in/manovosoa-nasolojaona/" target="_blank" class="btn">Mon LinkedIn</a>
     </section>
+
     <footer>
         <p>&copy; 2025 Manovosoa - Tous droits réservés</p>
     </footer>
     
     <script>
+        // Animation d'apparition des sections et titres
         gsap.to("section", {opacity: 1, y: 0, duration: 1, stagger: 0.3, ease: "power2.out"});
         gsap.to("h2", {opacity: 1, x: 0, duration: 1, stagger: 0.2, ease: "power3.out"});
-        
+
         function toggleDetails(id) {
             var details = document.getElementById(id);
-            if (details.style.display === "none" || details.style.display === "") {
-                details.style.display = "block";
+            if (details.dataset.open === "true") {
+                // Fermer avec un effet de slide up
+                gsap.to(details, {height: 0, opacity: 0, duration: 0.5, ease: "power2.in", onComplete: function() {
+                    details.dataset.open = "false";
+                }});
             } else {
-                details.style.display = "none";
+                // Ouvrir avec un effet de slide down
+                gsap.set(details, {display: "block", height: "auto"});
+                var height = details.offsetHeight; // Récupérer la hauteur complète
+                gsap.set(details, {height: 0, opacity: 0});
+                gsap.to(details, {height: height, opacity: 1, duration: 0.5, ease: "power2.out"});
+                details.dataset.open = "true";
             }
         }
     </script>
