@@ -10,12 +10,11 @@
         body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; text-align: center; background-color: #f4f4f4; }
         header { background-color: #2c3e50; color: white; padding: 30px; font-size: 24px; }
         section { padding: 40px; max-width: 800px; margin: auto; background: white; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); opacity: 0; transform: translateY(20px); }
-        h2 { color: #2c3e50; opacity: 0; transform: translateX(-30px); }
+        h2 { color: #2c3e50; opacity: 0; transform: translateX(-30px); cursor: pointer; }
         footer { background-color: #2c3e50; color: white; padding: 15px; position: relative; bottom: 0; width: 100%; font-size: 14px; }
         .container { padding: 20px; }
         .btn { background-color: #2980b9; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 10px; transition: background 0.3s ease-in-out, transform 0.2s; }
         .btn:hover { background-color: #1a5276; transform: scale(1.1); }
-        .toggle-item { cursor: pointer; color: #2980b9; text-decoration: underline; }
         .toggle-details { display: none; text-align: left; margin-top: 10px; }
     </style>
 </head>
@@ -28,8 +27,7 @@
         <p>Passionné par l'innovation et l'excellence opérationnelle, je possède une solide expérience en service client et assistance technique. Doté d’un fort sens de l’analyse et de la résolution de problèmes, je sais m’adapter rapidement aux environnements dynamiques et collaboratifs. Mon expertise inclut la gestion des incidents, l’optimisation des processus et l’utilisation des outils CRM pour améliorer l’efficacité et la satisfaction client. Toujours motivé par l’apprentissage continu, je m’engage à fournir des solutions de qualité et à contribuer activement à la réussite de mon équipe.</p>
     </section>
     <section>
-        <h2>Compétences</h2>
-        <h3 class="toggle-item" onclick="toggleDetails('skills')">Cliquez pour voir mes compétences</h3>
+        <h2 onclick="toggleDetails('skills')">Compétences</h2>
         <div id="skills" class="toggle-details">
             <h3>Hard Skills</h3>
             <ul>
@@ -48,15 +46,19 @@
         </div>
     </section>
     <section>
-        <h2>Projets & Réalisations</h2>
-        <h3 class="toggle-item" onclick="toggleDetails('project1')">🚀 Optimisation du CRM et Automatisation des Processus</h3>
-        <div id="project1" class="toggle-details">
+        <h2 onclick="toggleDetails('projects')">Projets & Réalisations</h2>
+        <div id="projects" class="toggle-details">
+            <h3>🚀 Optimisation du CRM et Automatisation des Processus</h3>
             <p>J'ai optimisé le CRM d'ABL OUTSOURCING en automatisant la gestion des interactions clients, réduisant ainsi le temps de traitement des demandes de 30%. Cette initiative a permis une meilleure segmentation des contacts et une amélioration du suivi des performances grâce à des tableaux de bord interactifs.</p>
-        </div>
-        
-        <h3 class="toggle-item" onclick="toggleDetails('project2')">🌐 Développement d’un Portail Web Interne</h3>
-        <div id="project2" class="toggle-details">
+            <h3>🌐 Développement d’un Portail Web Interne</h3>
             <p>J'ai conçu et mis en place un portail web interne destiné à centraliser les demandes clients et à fluidifier la communication entre les équipes. L’intégration avec le CRM existant a permis une synchronisation automatique des données, et la formation des collaborateurs a favorisé une adoption rapide du nouvel outil.</p>
+        </div>
+    </section>
+    <section>
+        <h2 onclick="toggleDetails('formation')">Formations</h2>
+        <div id="formation" class="toggle-details">
+            <p>Diplôme en Gestion et Administration - Université XYZ</p>
+            <p>Certification CRM et Service Client - Institution ABC</p>
         </div>
     </section>
     <section>
