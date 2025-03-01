@@ -15,6 +15,8 @@
         .container { padding: 20px; }
         .btn { background-color: #2980b9; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 10px; transition: background 0.3s ease-in-out, transform 0.2s; }
         .btn:hover { background-color: #1a5276; transform: scale(1.1); }
+        .toggle-item { cursor: pointer; color: #2980b9; text-decoration: underline; }
+        .toggle-details { display: none; text-align: left; margin-top: 10px; }
     </style>
 </head>
 <body>
@@ -27,20 +29,35 @@
     </section>
     <section>
         <h2>Compétences</h2>
-        <ul style="list-style-type:none; padding:0;">
-            <li>✔ Support technique & service client</li>
-            <li>✔ Gestion des incidents & résolution de problèmes</li>
-            <li>✔ Adaptabilité & travail en équipe</li>
-            <li>✔ Outils CRM & communication professionnelle</li>
-        </ul>
-    </section>
-    <section>
-        <h2>Expérience & Formation</h2>
-        <p>Expériences professionnelles et parcours académique détaillés.</p>
+        <h3 class="toggle-item" onclick="toggleDetails('skills')">Cliquez pour voir mes compétences</h3>
+        <div id="skills" class="toggle-details">
+            <h3>Hard Skills</h3>
+            <ul>
+                <li>✔ Support technique & service client</li>
+                <li>✔ Gestion des incidents & résolution de problèmes</li>
+                <li>✔ Outils CRM & communication professionnelle</li>
+                <li>✔ Optimisation des processus</li>
+            </ul>
+            <h3>Soft Skills</h3>
+            <ul>
+                <li>✔ Adaptabilité & travail en équipe</li>
+                <li>✔ Sens de l'analyse & résolution proactive</li>
+                <li>✔ Communication claire et efficace</li>
+                <li>✔ Apprentissage rapide & curiosité</li>
+            </ul>
+        </div>
     </section>
     <section>
         <h2>Projets & Réalisations</h2>
-        <p>Exemples concrets de travaux et projets réalisés.</p>
+        <h3 class="toggle-item" onclick="toggleDetails('project1')">🚀 Optimisation du CRM et Automatisation des Processus</h3>
+        <div id="project1" class="toggle-details">
+            <p>J'ai optimisé le CRM d'ABL OUTSOURCING en automatisant la gestion des interactions clients, réduisant ainsi le temps de traitement des demandes de 30%. Cette initiative a permis une meilleure segmentation des contacts et une amélioration du suivi des performances grâce à des tableaux de bord interactifs.</p>
+        </div>
+        
+        <h3 class="toggle-item" onclick="toggleDetails('project2')">🌐 Développement d’un Portail Web Interne</h3>
+        <div id="project2" class="toggle-details">
+            <p>J'ai conçu et mis en place un portail web interne destiné à centraliser les demandes clients et à fluidifier la communication entre les équipes. L’intégration avec le CRM existant a permis une synchronisation automatique des données, et la formation des collaborateurs a favorisé une adoption rapide du nouvel outil.</p>
+        </div>
     </section>
     <section>
         <h2>Contact</h2>
@@ -57,6 +74,15 @@
     <script>
         gsap.to("section", {opacity: 1, y: 0, duration: 1, stagger: 0.3, ease: "power2.out"});
         gsap.to("h2", {opacity: 1, x: 0, duration: 1, stagger: 0.2, ease: "power3.out"});
+        
+        function toggleDetails(id) {
+            var details = document.getElementById(id);
+            if (details.style.display === "none" || details.style.display === "") {
+                details.style.display = "block";
+            } else {
+                details.style.display = "none";
+            }
+        }
     </script>
 </body>
 </html>
