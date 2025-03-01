@@ -19,7 +19,6 @@
     <header>
         <h1>NASOLOJAONA Manovosoa</h1>
     </header>
-
     <section>
         <h2 onclick="toggleDetails('skills')">Compétences</h2>
         <div id="skills" class="toggle-details">
@@ -39,7 +38,6 @@
             </ul>
         </div>
     </section>
-
     <section>
         <h2 onclick="toggleDetails('projects')">Projets & Réalisations</h2>
         <div id="projects" class="toggle-details">
@@ -49,7 +47,6 @@
             <p>Mise en place d’un tableau de bord interactif facilitant l’analyse des données et la prise de décisions stratégiques.</p>
         </div>
     </section>
-
     <section>
         <h2 onclick="toggleDetails('formation')">Formations</h2>
         <div id="formation" class="toggle-details">
@@ -59,7 +56,6 @@
             <p>DTS - MARKETING ET COMMERCE (2016-2018)</p>
         </div>
     </section>
-
     <section>
         <h2>Contact</h2>
         <p>Email : manovosoanasolojaona@gmail.com</p>
@@ -67,25 +63,21 @@
         <br>
         <a href="https://www.linkedin.com/in/manovosoa-nasolojaona/" target="_blank" class="btn">Mon LinkedIn</a>
     </section>
-
     <footer>
         <p>&copy; 2025 Manovosoa - Tous droits réservés</p>
     </footer>
     
     <script>
-        // Animation d'apparition des sections et titres
         gsap.to("section", {opacity: 1, y: 0, duration: 1, stagger: 0.3, ease: "power2.out"});
         gsap.to("h2", {opacity: 1, x: 0, duration: 1, stagger: 0.2, ease: "power3.out"});
 
         function toggleDetails(id) {
             var details = document.getElementById(id);
             if (!details.classList.contains("open")) {
-                // Ouvre la section avec un slide
-                gsap.to(details, {height: "auto", opacity: 1, duration: 0.5, ease: "power2.out"});
+                gsap.to(details, {height: "auto", opacity: 1, duration: 1, ease: "power2.out"});
                 details.classList.add("open");
             } else {
-                // Ferme la section avec un slide
-                gsap.to(details, {height: 0, opacity: 0, duration: 0.5, ease: "power2.in"});
+                gsap.to(details, {height: 0, opacity: 0, duration: 1, ease: "power2.in"});
                 details.classList.remove("open");
             }
         }
