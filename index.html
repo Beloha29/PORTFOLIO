@@ -75,10 +75,11 @@
             var details = document.getElementById(id);
             if (!details.classList.contains("open")) {
                 gsap.to(details, {height: "auto", opacity: 1, duration: 1.5, ease: "power2.out"});
+                gsap.fromTo(details.children, {opacity: 0, y: 20}, {opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power2.out"});
                 details.classList.add("open");
             } else {
-                gsap.to(details, {height: 0, opacity: 0, duration: 1.5, ease: "power2.in"});
-                details.classList.remove("open");
+                gsap.to(details.children, {opacity: 0, y: 20, duration: 0.5, ease: "power2.in"});
+                gsap.to(details, {height: 0, opacity: 0, duration: 1, ease: "power2.in", onComplete: () => details.classList.remove("open")});
             }
         }
     </script>
